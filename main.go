@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gopkg.in/telegram-bot-api.v4"
+	tgbotapi "gopkg.in/telegram-bot-api.v4"
 	"math/rand"
 	"time"
 )
@@ -25,20 +25,20 @@ func telegramBot() {
 		if update.Message.Text != "" {
 			switch update.Message.Text {
 			case "/start":
-				msg := tgbotapi.NewAudioUpload(update.Message.Chat.ID, "voice/himself.ogg")
+				msg := tgbotapi.NewAudioUpload(update.Message.Chat.ID, "voice/Ben.ogg")
 				_, err = bot.Send(msg)
 				if err != nil {
 					panic(err)
 				}
 			default:
 				if rand.Intn(100) < 50 {
-					msg := tgbotapi.NewAudioUpload(update.Message.Chat.ID, "voice/noo.ogg")
+					msg := tgbotapi.NewAudioUpload(update.Message.Chat.ID, "voice/No.ogg")
 					_, err = bot.Send(msg)
 					if err != nil {
 						panic(err)
 					}
 				} else {
-					msg := tgbotapi.NewAudioUpload(update.Message.Chat.ID, "voice/yes.ogg")
+					msg := tgbotapi.NewAudioUpload(update.Message.Chat.ID, "voice/Yes.ogg")
 					_, err = bot.Send(msg)
 					if err != nil {
 						panic(err)
